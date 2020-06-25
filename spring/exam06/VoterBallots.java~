@@ -1,0 +1,23 @@
+public class VoterBallots{
+
+    private Map<String,Integer> voteCount; 
+    // key is the candidate name, value is the
+    // number of votes received by that candidate.
+
+    // precondition: each entry in ballotList is a Set representing
+    //               one voter's ballot.
+    // postcondition: voteCount.get(candidate) is the total number of
+    //                times candidate appears on ballots in ballotList.
+    public VoterBallots(List<Set<String>> ballotList)
+
+    // postcondition: returns an Integer object with value equal
+    //                to the key in the Map voteCount.
+	private Integer maxVotes()
+
+
+    // postcondition: returns the set containing the candidate(s)
+    //                with the most votes
+	public Set<String> candidatesWithMost()
+
+    // other methods not shown
+	}

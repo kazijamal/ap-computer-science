@@ -1,0 +1,27 @@
+public class Mariner {
+
+    public static int[][] hadamard(int n) {
+	int[][] ans = new int[n][n];
+	ans[0][0] = 1;
+	int x = 1;
+	while (x <= n) {
+	    ans[x][x-1] = ans[x-1][x-1];
+	    ans[x-1][x] = ans[x-1][x-1];
+	    ans[x][x] = Math.abs(ans[x-1][x-1]);
+	    x *= 2;
+	}
+	return ans;
+    }
+
+    public static void main(String[] args) {
+	int n = Integer.parseInt(args[0]);
+	int[][] h = hadamard(n);
+	for (int i = 0; i < n; i++) {
+	    for (int j = 0; j < n; j++) {
+		System.out.print(h[i][j] + " ");
+	    }
+	    System.out.println();
+	}
+    }
+
+}

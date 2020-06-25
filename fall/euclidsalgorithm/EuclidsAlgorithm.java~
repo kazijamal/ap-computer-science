@@ -1,0 +1,36 @@
+public class EuclidsAlgorithm{
+
+    public static int gcd(int x, int y){
+	int r = x % y;
+	while (r != 0){
+	    x = y;
+	    y = r;
+	    r = x % y;
+	}
+	return y;
+    }
+
+    public static int lcm(int x, int y){
+	int lcm = x*y/gcd(x,y);
+	return lcm;
+    }
+
+    public static int countDigits(int x){
+	int n = 0;
+	while (x != 0){
+	    x /= 10;
+	    n += 1;
+	}
+	return n;
+    }
+	
+    public static void main(String [] args){
+	int x = Integer.parseInt(args[0]);
+	int y = Integer.parseInt(args[1]);
+	System.out.println(gcd(x,y));
+	System.out.println(lcm(x,y));
+	System.out.println(countDigits(x));
+	System.out.println(countDigits(y));
+    }
+
+}

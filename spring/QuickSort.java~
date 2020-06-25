@@ -1,0 +1,26 @@
+public class QuickSort{
+
+    public void printData(int[] data){
+	for (int x: data)
+	    System.out.print(x + " ");
+    }
+
+    public void partition(int[] data){
+	int i, int j;
+	int j--;
+	int i++;
+	swap(data,i,j);
+	if (j < i)
+    }
+
+    public void quickSort(int[] data){
+	
+    }
+
+    public static void main(String [] args){
+	int[] data = { 6, 5, 4, 1, 7, 2, 8, 3 };
+	quickSort(data);
+	
+    }
+
+}

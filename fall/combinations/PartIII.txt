@@ -1,0 +1,15 @@
+a.	output = "ABCDE"
+b.	n = 17
+c.	1) f1() is called and evaluated, adding "A" to the output and returning 1
+	2) f2() is called and evaluated, adding "B" to the output and returning 2 
+	3) f5(f3() + f4()) is called so the value of the argument is computed
+	4) f3() is called and evaluated, adding "C" to the output and returning 3
+	5) f4() is called and evaluated, adding "D" to the output and returning 4
+	6) 3 is added to 4, evaluates to 7
+	7) 7 is the argument copied into the corresponding parameter for f5()
+	8) f5(7) is called and evaluated, adding "E" to the output and returning 2 * 7 which evaluated to 14
+	9) 1, 2, and 14 are added together
+	10) n evaluates to 17
+d.	f5(f3() + f4()) + f2() + f1()
+	n = 2 * (3 + 4) + 2 + 1 = 2 * 7 + 2 + 1 = 14 + 2 + 1 = 17
+	output = "C" + "D" + "E" + "B" + "A" = "CDEBA"

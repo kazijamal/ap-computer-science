@@ -1,0 +1,17 @@
+public class RaiseToPower{
+
+    public static int raiseToPower(int n, int k){
+	if (k == 0) return 1;
+	while (k > 0){
+	    n *= n;
+	    k -= 1;
+	}
+	return n;
+    }
+
+    public static void main(String[] args){
+	int n = Integer.parseInt(args[0]);
+	int k = Integer.parseInt(args[1]);
+    }
+
+}

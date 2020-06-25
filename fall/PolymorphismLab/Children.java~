@@ -1,0 +1,16 @@
+public class Children{
+
+    int sumchildren = 0;
+
+    for (int f = 0; f < 1000; f++){
+	Coin g = new Coin();
+	String first = g.flip();
+	int numchildren = 1;
+	while (g.flip() == first)
+	    numchildren++;
+	sumchildren += numchildren;
+    }
+
+    return sumchildren / 1000.0;
+
+}

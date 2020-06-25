@@ -1,0 +1,189 @@
+import java.util.ArrayList;
+// Immutable ADT Rational represents a rational number (n/d).
+// - it is a final class which prevents any class from subclassing it.
+
+public final class Rational{
+
+    // instance varriables (fields) CONSTANTS
+    private final int NUM; // numerator
+    private final int DEN; // denominator
+
+    // Constructors
+    // Default Constructor
+    public Rational(){
+	this(0,1);       // must be the first statemet 
+    }
+    // Constructor
+    public Rational(int n){
+	this(n,1);
+    }
+    // Constructor
+    public Rational(int n, int d){
+	if (d == 0) throw new RuntimeException("DIVISION BY ZERO");
+	if (n == 0) {
+	    // this() ;   // call to this must be the first statement
+	    NUM = 0;
+	    DEN = 1;
+	}
+	else{
+	    // n is not zero
+	    int sign = Math.abs(n)/n * Math.abs(d)/d;
+	    n = Math.abs(n);
+	    d = Math.abs(d);
+	    NUM = sign *  n / gcd(n,d);
+	    DEN =  d / gcd(n,d);
+	}
+    }
+
+    
+    public Rational plus (Rational rhs){
+	return new Rational(NUM*rhs.DEN + rhs.NUM * DEN, DEN * rhs.DEN);
+    }
+
+    public Rational minus (Rational rhs){
+	return new Rational(NUM*rhs.DEN - rhs.NUM * DEN, DEN * rhs.DEN);
+    }
+
+    public Rational times(Rational rhs){
+	return new Rational(NUM*rhs.NUM, DEN * rhs.DEN);
+    }
+
+    public Rational divideBy(Rational rhs){
+	return new Rational(NUM*rhs.DEN, DEN * rhs.NUM);
+    }
+
+    public Rational invert(){
+	return new Rational(DEN,NUM);
+    }
+
+    public Rational negate(){
+	return new Rational(-NUM,DEN);
+    }
+
+    public Rational abs(){
+	int newnum = NUM;
+	if (NUM < 0) newnum *= -1;
+	return new Rational(newnum,DEN);
+    }
+
+    public Double toDouble(){
+	return new Double(NUM * 1.0 / DEN);
+    }
+
+    // Standard Implementation of Euclid's Algorithm
+    private int gcd(int x, int y){
+	int r  = x % y;
+	while (r != 0){
+	    x = y;
+	    y = r;
+	    r = x % y;
+	}
+	return y;
+    }
+
+    public static Rational a4(Rational a, Rational b, Rational c, Rational d){
+	return (a.plus(b).plus(c).plus(d));
+    }
+    
+    public static Rational b4(Rational a, Rational b, Rational c, Rational d){
+        return (a.times(b.plus(c)).minus(d));
+    }
+    
+    public static Rational c4(Rational a, Rational b, Rational c, Rational d){
+	return ((a.plus(b)).divideBy(c.plus(d)));
+    }
+
+    public static Rational sumrats(ArrayList<Rational> rats){
+	Rational sum = new Rational();
+	for (Rational rat : rats)
+	    sum = sum.plus(rat);
+	return sum;
+    }
+
+    private static int factorial(int n){ 
+	return (n == 1 || n == 0) ? 1 : n * factorial(n - 1);
+    }
+
+    public static void eapprox(){
+	Rational sum = new Rational();
+	System.out.println(0 + "\t" + sum + "\t" + sum.toDouble());
+	for (int t = 0; t < 10; t++){
+		sum = sum.plus(new Rational(1,factorial(t)));
+		System.out.println(t + "\t" + sum + "\t" + sum.toDouble());
+	    }
+    }
+    
+    @Override
+    public String toString(){
+	return NUM + "/" + DEN;
+    }
+
+    @Override
+    public boolean equals(Object rhs){
+	if (!(rhs instanceof Rational)) return false;
+	Rational r = (Rational) rhs;
+	return this.NUM * r.DEN == this.DEN * r.NUM;
+    }
+
+    @Override
+    public int hashCode(){
+	return NUM * 31 + DEN;
+    }
+    
+    // main is used for testing should be removed when class is fully 
+    // implemented.
+    public static void main(String [] args){
+	Rational x = new Rational(5,15);
+	Rational y = new Rational(20,-4);
+	// Testing basic arithmetic
+	System.out.println(x + " + " + y + " = " + x.plus(y));
+	System.out.println(x + " - " + y + " = " + x.minus(y));
+	System.out.println(x + " * " + y + " = " + x.times(y));
+	System.out.println(x + " / " + y + " = " + x.divideBy(y));
+	System.out.println();
+	// Generates a list of 5 rational numbers
+	ArrayList<Rational> rats = new ArrayList<Rational>();
+	for (int i = 0 ; i < 5 ; i++){
+	    int n = -5 + (int) (Math.random() * 10);
+	    int d = 1 + (int) (Math.random() * 10);
+	    rats.add(new Rational(n,d));
+	}
+	System.out.println("rats: " + rats);
+	System.out.println();
+	// Testing to verify only 1 value of zero exists (0/1)
+	System.out.println(new Rational());
+	System.out.println(new Rational(0,3));
+	System.out.println(new Rational(0));
+	System.out.println(new Rational(0,-3));
+	System.out.println();
+	// Testing to verify that for negative rational numbers, the negation sign is associated with the numerator only
+	System.out.println(new Rational(1,-3));
+	System.out.println();
+	// q4
+	Rational a,b,c,d;
+	a = new Rational(1,2);
+	b = new Rational(1,2);
+	c = new Rational(1,2);
+	d = new Rational(1,2);
+	System.out.println(a + " + " + b + " + " + c + " + " + d + " = " + a4(a,b,c,d));
+	System.out.println(a + "(" + b + " + " + c + ") - " + d + " = " + b4(a,b,c,d));
+	System.out.println("(" + a + " + " + b + ") / (" + c + " + " + d + ") = " + c4(a,b,c,d));
+	System.out.println();
+	// q5
+	System.out.println("sum of rats: " + sumrats(rats));
+	System.out.println();
+	// q6
+	System.out.println("1/2 inverted is " + a.invert());
+	System.out.println("1/2 negated is " + a.negate());
+	System.out.println("-1/2 absolute value is " + a.negate().abs());
+	System.out.println("1/2 as a double is " + a.toDouble());
+	System.out.println();
+	// q7
+	eapprox();
+	System.out.println();
+	// equals
+	System.out.println(a.equals(b));
+	System.out.println(a==b);
+    }
+}
+ 

@@ -1,0 +1,16 @@
+public class CheckerBoard{
+
+    public static void main(String [] args){
+	N = Integer.parseInt(args[0]);
+	for (int i = 1; i <= N; i++){
+	    if (i % 2 = 0){
+		System.out.println("* " * N);
+	    }
+	    else{
+		System.out.println(" *" * N);
+	    }
+	}
+    }
+
+}
+		

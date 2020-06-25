@@ -1,0 +1,58 @@
+public class NodeMethods {
+
+    // precondition: p is either null or refers to a linkedlist of Node<Integer>
+    // objects. Each value held within a node is nonnegative.
+    // postcondition: returns the maximum value.
+    public static int max(Node<Integer> p) {
+        int ans = 0;
+        while (p != null) {
+            if (p.getValue() > ans)
+                ans = p.getValue();
+            p = p.getNext();
+        }
+        return ans;
+    }
+
+    public static int maxR(Node<Integer> p) {
+        if (p == null) return 0;
+        return maxHelper(p.getNext(), p.getValue());
+    }
+
+    public static int maxHelper(Node<Integer> p, int ans) {
+        if (p == null) return ans;
+        if (p.getValue() > ans) {
+            ans = p.getValue();
+        }
+        return maxHelper(p.getNext(), ans);
+    }
+
+    public static void print(Node<Integer> p) {
+        if (p == null) return;
+        System.out.println(p.getValue());
+        print(p.getNext());
+    }
+
+    public static void printReverse(Node<Integer> p) {
+        if (p == null) return;
+        printReverse(p.getNext());
+        System.out.println(p.getValue());
+
+    }
+
+    public static int length(Node<Integer> p) {
+        if (p == null) return 0;
+        return length(p.getNext()) + 1;
+    }
+
+    public static void main(String[] args) {
+        Node<Integer> list = new Node<Integer>(9,new Node<Integer>(17,new Node<Integer>(12,null)));
+        System.out.println("list: ");
+        print(list);
+        System.out.println("list reverse: ");
+        printReverse(list);
+        System.out.println("max: " + max(list));
+        System.out.println("recursive max: " + maxR(list));
+        System.out.println("length: " + length(list));
+    }
+
+}

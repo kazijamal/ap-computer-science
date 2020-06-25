@@ -1,0 +1,17 @@
+public class Bridge{
+
+    public static void main(String [] args){
+	new Bridge().run();
+    }
+
+    public void run(String [] args){
+    }
+
+    private String testing(){
+	int prob5332 = 0, prob4432 = 0, prob 4333 = 0;
+	for (int trial = 0; trial < 1000; trial++){
+	    Int[4] = new Int[];
+	    int suit = (int) (Math.random() * 4);
+	    if suit = 0;
+
+}

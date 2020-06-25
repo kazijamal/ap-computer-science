@@ -1,0 +1,32 @@
+public class SkiJumper extends Athlete implements Flier,Trainable,Comparable<SkiJumper>{
+
+    private int jumps;
+
+    // constructor
+    public SkiJumper(String first, String last){
+	super(first,last);
+    }
+
+    @Override
+    public void fly(){
+	jumps++;
+    }
+
+    @Override
+    public int compareTo(SkiJumper other){
+	if (jumps > other.jumps) return 1;
+	if (jumps < other.jumps) return -1;
+	return 0;
+    }
+
+    // accessor
+    public int getJumps(){
+	return jumps;
+    }
+
+    @Override
+    public String toString(){
+	return super.toString() + "\tJumps: " + jumps;
+    }
+
+}

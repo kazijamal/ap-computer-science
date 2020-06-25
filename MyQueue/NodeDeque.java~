@@ -1,0 +1,6 @@
+public class NodeDeque<E> implements Deque<E> {
+
+
+
+
+}

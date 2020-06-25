@@ -1,0 +1,18 @@
+public class TitusBodeLaw{
+
+    public int b(int i){
+	if (i == 1)
+	    return 1;
+	return 2 * b(i-1);
+    }
+
+    public void run(int i){
+	System.out.println(b(i));
+    }
+
+    public static void main(String [] args){
+	int i = Integer.parseInt(args[0]);
+	new TitusBodeLaw().run(i);
+    }
+
+}

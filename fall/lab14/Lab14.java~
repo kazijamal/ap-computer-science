@@ -1,0 +1,19 @@
+public class Lab14{
+
+    private String obenglobish(String str){
+	String vowels = "aeiou";
+	String ans = ""
+	for (int i = 0; i < str.length(); i++){
+	    if (vowels.contains(str.substring(i+1)) && (!(vowels.contains(str.substring(i-1,i)))) && (str.charAt(i) != 'e' && i = str.length()-1)){
+		ans += "ob" + str.charAt(i);
+	    }
+	    else{
+		ans += str.charAt(i);
+	    }
+	}
+	return ans;
+    }
+
+	
+	
+	

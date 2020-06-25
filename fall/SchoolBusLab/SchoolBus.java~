@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+
+public class SchoolBus extends ArrayList<Student>{
+    
+    // instance variables
+    private int numseats;
+    private int vacantseats;
+
+    // constructor
+    public SchoolBus(int numseats){
+	vacantseats = this.numseats = numseats;
+    }
+
+    public boolean isFull(){
+	return vacantseats == 0;
+    }
+
+    @Override
+    public boolean add(Student s){
+	if (isFull()) return false;
+	vacantseats--;
+	return super.add(s);
+    }
+
+    @Override
+    public void add(int n, Student s){
+	if (!(isFull())){
+	    vacantseats--;
+	    super.add(n, s);
+	}
+    }
+
+    @Override
+    public Student remove(int n){
+	vacantseats++;
+	return super.remove(n);
+    }
+    
+}

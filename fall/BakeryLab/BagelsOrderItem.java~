@@ -1,0 +1,27 @@
+public class BagelsOrderItem implements OrderItem{
+
+    private double price;
+    private int quantity;
+
+    // constructor
+    public BagelsOrderItem(double price, int quantity){
+	this.price = price;
+	this.quantity = quantity;
+    }
+    
+
+    // accessor methods
+    public double getPrice(){
+	return price;
+    }
+
+    public int getQuantity(){
+	return quantity;
+    }
+    
+
+    public double getCost(){
+	return price * quantity;
+    }
+
+}

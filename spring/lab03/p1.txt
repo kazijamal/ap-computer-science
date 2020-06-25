@@ -1,0 +1,5 @@
+1) floor of (i-1)/2
+2) floor of the logarithm base 2 of n
+3) floor of (N-2)/2
+4) a. 2^h
+   b. 2^(h-1)

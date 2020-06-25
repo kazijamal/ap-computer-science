@@ -1,0 +1,123 @@
+  I.  Due: on 11/30 (12/01 is late)
+ II.  You must work in pairs. If you need a partner see me.
+III.  You may not ask for help or assistance from anyone that is not in your group.
+      If you need help, see me.
+ IV.  Late work will not be graded. 
+     
+
+
+Each question is worth 25 points.
+
+1. Using printf, write the program TrigTable.java that displays a table
+   of trigonometric sines and cosines that looks like this:
+
+    theta  | sin(theta) | cos(theta) |
+    -------+------------+------------+
+      -90  | -1.0000000 |  0.0000000 |
+      -75  | -0.9659258 |  0.2588190 |
+      -60  | -0.8660254 |   0.5000000 |
+      -45  | -0.7071068 |   0.7071068 |
+      -30  | -0.5000000 |   0.8660254 |
+      -15  | -0.2588190 |   0.9659258 |
+      	0  |  0.0000000 |   1.0000000 |
+       15  |  0.2588190 |   0.9659258 |
+       30  |  0.5000000 |   0.8660254 |
+       45  |  0.7071068 |   0.7071068 |
+       60  |  0.8660254 |   0.5000000 |
+       75  |  0.9659258 |   0.2588190 |
+       90  |  1.0000000 |   0.0000000 |
+
+
+
+   The numeric columns should all be aligned on the right, and the
+   columns containing the trigonometric functions (which are listed her
+   for angles at 15-degree intervals) should hava seven digits after
+   the decimal point. Review the Math class application programming
+   interface (api). 
+
+
+
+2. If you were writing a compiler, the compiler must ignore all comments.
+
+   Write the program RemoveComments.java that recognizes and removes
+   the comments that occur in a source file.
+
+   Your program must includ the method:
+
+     pubic void removeComments(Reader rd, Writer wr)
+  
+   that copies characters from the reader rd to the writer wr, except
+   for characters that appear inside Java comments. Your implementation
+   should recognize both of Java's comment forms:
+
+      * Any text beginning with /* and ending with */, possibly many lines.
+
+      * Any text beginning with // and extending through the end of the line.
+
+   
+   Although the real Java compiler needs to check to make sure that these
+   characters are not contained insided quoted strings, you should feel 
+   free to ignore that detail.
+
+
+
+3. Write a program, Censor.java, that asks a user for an input file, 
+   an output file, and a string of letters to be eliminated. The program
+   should copy the input file to the output file, deleting any of the
+   letters that appear in the string of censored letters, no matter
+   whether they appear in uppercase or lowercase form.
+
+   As an example, suppose that you have a file containing the first few
+   lines of James Thuber's novel:
+
+   TheWonderfulO.txt
+   ------------------
+   Somewhere a ponderous tower clock slowly
+   dropped a dozen strokes into the gloom,
+   Storm clouds rode low along the horizon,
+   and no moon shone. Only a melancholy
+   chorus of frogs broke the soundlessness.
+
+   If you run your program with the input:
+     
+   Input file: TheWonderfulO.txt
+   Output file: TheWnderful.txt
+   Letters to banish : o
+
+   it should write the following file
+
+
+    TheWnderful.txt
+   ------------------
+   Smewhere a pnderus twer clck slwly
+   drpped a dzen strkes int the glm,
+   Strm cluds rde lw alng the hrizn,
+   and n mn shne. nly a melanchly
+   chrus f frgs brke the sundlessness.
+
+   If you banish all the vowels you would get:
+   
+   Smwhr  pndrs twr clck slwly
+   drppd  dzn strks nt th glm,
+   Strm clds rd lw lng th hrzn,
+   nd n mn shn. nly  mlnchly
+   chrs f frgs brk th sndlssnss.
+
+
+
+4. Some files use tab characters to align the data into colums. Doing so, however,
+   can cause problems for applications that are unable to work directly with tabs.
+   For these applications, it is useful to hava access to a program that replaces
+   tabs in an input file with the number of spaces required to reach the next tab
+   stop. In programming, the tab stops are usually set at every eight columns. For
+   example, suppose that the input file contains a line of the form
+
+           abc-----|pqrst ---|xyz
+
+   where the -----| symbol represents the space taken up by a tab, which differs
+   depending on where the tab occurs in the line. If the tab stops are set every
+   eight spaces, the first tab character must be replaced by 5 spaces and the 
+   second tab character by three.
+
+   Write the program Tabify.java, that copies an input file to an output file, 
+   replacing all tab characters by the appropriate number of spaces.

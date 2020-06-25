@@ -1,0 +1,2 @@
+This is a test file.
+This tests LetterCount.java, which prints the frequency of each character in a text file.

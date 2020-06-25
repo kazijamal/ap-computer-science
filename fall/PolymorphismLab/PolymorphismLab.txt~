@@ -1,0 +1,4 @@
+1) The chance of flipping an H is 0.5 * 0.5 + 0.5 * 0.2 = 0.25 + 0.1 = 0.35 or 35%.
+2) The code will not compile because at compilation, the compiler searches the Object class to ensure that flip() is defined, which it is not. Therefore the code will not compile successfully.
+3) The code will compile because at compilation, the compiler searches the Flippable class to ensure that flip() is defined, which it is. Therefore the code will compile successfully.
+4) The code will run, with the version of flip() being based on the BiasedCoin Object type.

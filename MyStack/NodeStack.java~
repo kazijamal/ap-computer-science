@@ -1,0 +1,35 @@
+import java.util.EmptyStackException;
+
+public class NodeStack<E> implements MyStack<E> {
+
+    private static class Node<E> {
+
+	// instance variables
+	private final E VALUE;
+	private final Node<E> NEXT;
+
+	// constructor
+	public Node(E value, Node<E> next) {
+	    this.VALUE = value;
+	    this.NEXT = next;
+	}
+
+	// getter methods
+	public E getValue() {
+	    return VALUE;
+	}
+
+	public Node getNext() {
+	    return NEXT;
+	}
+
+	@Override
+	public String toString() {
+	    return VALUE.toString();
+	}
+
+    }
+sdw
+    public 
+
+}

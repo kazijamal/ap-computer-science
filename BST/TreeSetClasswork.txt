@@ -1,0 +1,45 @@
+2. A set is a collection that has no duplicate elements.
+
+   Testable Subset of the Java Interface Set
+
+   boolean isEmpty();
+   int size();
+   boolean contains(E obj);
+   boolean add(E obj);
+   boolean remove(E obj);
+   Iterator<E> iterator();
+
+   Java's TreeSet class implements a set as a binary search tree (BST).
+
+
+
+   a. What is the expected runtime of the TreeSet's add, contains and remove
+      methods?
+      
+      add: O(logN) worst case O(N)
+      contains: O(logN) worst case O(N)
+      remove: (NlogN)
+
+   b. Which traversal, preorder, inorder, or  postorder, does the TreeSet's
+      iterator use?
+
+      inorder
+
+   c. Write a method that returns a set of all primes that do not exceed n.
+
+
+      public static TreeSet<Integer> allPrimes(int n){
+          TreeSet<Integer> ans = new TreeSet<Integer>();
+          for (int x = 2; x <= n; x++) {
+              if (isPrime(x)) ans.add(x);
+          }
+          return ans;
+      } 
+
+      private boolean isPrime(int n) {
+          if (n <= 1) return false;
+          for (int i = 2; i < n; i++) {
+              if (n % i != 0) return false;
+          }
+          return true;
+      }

@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class DNA{
+
+    private int findDNAMatch(String s1, String s2){
+	return findDNAMatch(s1,s2,0);
+    }
+
+    private int findDNAMatch(String s1, String s2, int start){
+	s2 = s2.substring(start);
+	int position = 0;
+        String is1 = "";
+	for (int i = 0; i < s1.length(); i++){
+	    char c = s1.charAt(i);
+	    if (c == 'C')
+		is1 += 'G';
+	    else if (c == 'G')
+		is1 += 'C';
+	    else if (c == 'A')
+		is1 += 'T';
+	    else if (c == 'T')
+		is1 += 'A';
+	}
+	if (!(s2.contains(is1)))
+	    return -1;
+	while (!(s2.startsWith(is1))){
+	    position += s2.indexOf(is1.charAt(0));
+	    s2 = s2.substring(s2.indexOf(is1.charAt(0)));
+	    System.out.println(s2);
+	}
+	return position;
+    }
+
+    public void run(){
+	Scanner sys = new Scanner(System.in);
+	System.out.print("Enter DNA strand 1: ");
+	String s1 = sys.nextLine();
+	System.out.print("Enter DNA strand 2: ");
+	String s2 = sys.nextLine();
+	System.out.print("Enter start index: ");
+	int start = sys.nextInt();
+	System.out.println("Position of DNA match: " + findDNAMatch(s1,s2,start));
+    }
+
+    public static void main(String [] args){
+	new DNA().run();
+    }
+
+}

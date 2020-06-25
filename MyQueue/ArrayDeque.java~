@@ -1,0 +1,92 @@
+public class ArrayDeque<E> implements Deque<E> {
+
+    private E[] deque;
+    private int head;
+    private int tail;
+    private final int MAX_CAPACITY;
+
+    public ArrayDeque(int cap) {
+	deque = (E[]) (new Object[cap + 1]);
+	head = tail = 0;
+	MAX_CAPACITY = cap;
+    }
+
+    @Override
+    public int size() {
+	final int N = deque.length;
+	return (N - head + tail) % N;
+    }
+
+    @Override
+    public boolean isEmpty() {
+	return size() == 0;
+    }
+
+    @Override
+    public E getFirst() throws EmptyDequeException {
+	if (isEmpty())
+	    throw new EmptyDequeException("Empty deque");
+	return deque[head];
+    }
+
+    @Override
+    public E getLast() throws EmptyDequeException {
+	if (isEmpty())
+	    throw new EmptyDequeException("Empty deque");
+	return deque[tail];
+    }
+
+    @Override
+    public void addFirst(E val) {
+	head = Math.floorMod(head-1, MAX_CAPACITY + 1);
+	deque[head] = val;
+    }
+
+    @Override
+    public void addLast(E val) {
+	deque[tail] = val;
+	tail = (tail + 1) % (MAX_CAPACITY + 1);
+    }
+
+    @Override
+    public E removeFirst() throws EmptyDequeException {
+	if (isEmpty())
+	    throw new EmptyDequeException("Empty deque");
+	E ans = deque[head];
+	deque[head] = null;
+	head = (head + 1) % (MAX_CAPACITY + 1);
+	return ans;
+    }
+
+    @Override
+    public E removeLast() throws EmptyDequeException {
+	if (isEmpty())
+	    throw new EmptyDequeException("Empty deque");
+	E ans = deque[tail-1];
+	tail = Math.floorMod(tail-1, MAX_CAPACITY + 1);
+	return ans;
+    }
+
+    @Override
+    public String toString() {
+	String ans = "[";
+	for (int i = 0; i < size(); i++) {
+	    ans += deque[(head + i) % (MAX_CAPACITY + 1)] + ",";
+	}
+	if (ans.length() > 1)
+	    ans = ans.substring(0, ans.length() -1);
+	ans += "]" + " head: " + head + " tail: " + tail + " size: " + size();
+	return ans;
+    }
+    
+    public static void main(String[] args) {
+	Deque<Integer> d = new ArrayDeque<Integer>(5);
+	d.addFirst(1);
+	System.out.println(d);
+	d.addLast(2);
+	System.out.println(d);
+	d.addFirst(3);
+	System.out.println(d);
+    }
+
+}

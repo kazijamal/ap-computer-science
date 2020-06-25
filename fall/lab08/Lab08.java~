@@ -1,0 +1,24 @@
+public class Lab08{
+
+    public static double picalc(){
+	double oldsixthpi = 0;
+	double newsixthpi = 0.5;
+	for (double i = 1.0; newsixthpi != oldsixthpi; i++){
+	    oldsixthpi = newsixthpi;
+	    double t1 = 0;
+	    for (double num = 1.0, den = 2.0, n = 1.0; n <= i; n++){
+		t1 *= num/den;
+		num += 2;
+		den += 2;
+	    }
+	    newsixthpi += t1 * (1/(2*i+1)) * (Math.pow(0.5, 2*i + 1));
+	}
+	double pi = newsixthpi * 6;
+	return pi;
+    }
+
+    public static void main(String[] args){
+	System.out.println(picalc());
+    }
+
+}

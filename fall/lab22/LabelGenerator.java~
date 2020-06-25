@@ -1,0 +1,15 @@
+public class LabelGenerator{
+
+    private String prefix;
+    private int index;
+
+    public LabelGenerator(String prefix, int init){
+	this.prefix = prefix;
+	index = init;
+    }
+
+    public String nextLabel(){
+	return prefix + index++;
+    }
+
+}

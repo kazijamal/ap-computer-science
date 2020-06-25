@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class Lab13{
+
+    private String reverse(String str){
+	String reverse = "";
+	for (int i = str.length()-1; i >= 0; i--)
+	    reverse += str.charAt(i);
+	return reverse;
+    }
+
+    private String r_reverse(String str){
+	if (str.length() == 0) return "";
+	return str.charAt(str.length()-1) + r_reverse(str.substring(0,str.length()-1));
+    }
+
+    private String scramble(String str){
+	String scrambled = "";
+	for (int i = 0; i < str.length(); i++){
+	    int randindex = (int) (Math.random() * str.length());
+	    char ch = str.charAt(randindex);
+	    while (scrambled.contains(Character.toString(ch)))
+		randindex = (int) (Math.random() * str.length());
+	    scrambled += str.charAt(randindex);
+	}
+	return scrambled;
+    }
+
+    public void run(){
+	Scanner sys = new Scanner(System.in);
+	System.out.print("enter str: ");
+	String str = sys.nextLine();
+	System.out.println(str + " reverse: " + reverse(str));
+	System.out.println(str + " recursive reverse: " + r_reverse(str));
+	System.out.println(str + " scrambled: " + scramble(str));
+	System.out.println(str + " scrambled: " + scramble(str));
+    }
+
+    public static void main(String [] args){
+	new Lab13().run();
+    }
+
+}

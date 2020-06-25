@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SearchStats",
+            "request": "launch",
+            "mainClass": "SearchStats",
+            "projectName": "spring_7f6763a1"
+        }
+    ]
+}

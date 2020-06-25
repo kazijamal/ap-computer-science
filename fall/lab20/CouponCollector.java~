@@ -1,0 +1,34 @@
+// Sunan Tajwar and Kazi Jamal Period 1
+
+public class CouponCollector{
+
+    public static void main(String [] args){
+	int n = Integer.parseInt(args[0]);
+	new CouponCollector().run(n);
+    }
+
+    private void run(int n){
+	System.out.println(collection(n));
+    }
+
+    private int collection(int n){
+	boolean[] count = new boolean[n];
+	int numcollections = 0;
+	boolean allcoupons = false;
+	while(true){
+	    int rand = (int) (Math.random()*n);
+	    count[rand] = true;
+	    for (boolean b : count){
+		if (!b){
+		    allcoupons = false;
+		    break;
+		}
+		allcoupons = true;
+	    }
+	    numcollections++;
+	    if (allcoupons) break;
+	}
+	return numcollections;
+    }
+	    
+}

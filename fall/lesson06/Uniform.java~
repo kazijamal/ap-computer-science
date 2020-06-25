@@ -1,0 +1,12 @@
+public class Uniform{
+
+    public static int uniform(int n){
+	return (int) Math.random() * n;
+    }
+
+    public static void main(String [] args){
+	int n = Integer.parseInt(args[0]);
+	System.out.println(uniform(n));
+    }
+
+}

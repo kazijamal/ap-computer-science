@@ -1,0 +1,24 @@
+import java.util.List;
+import java.util.ArrayList;
+
+public class EmployeeClient{
+
+    public static void main(String[] args){
+	new EmployeeClient().run();
+    }
+
+    public void run(){
+	HourlyEmployee k = new HourlyEmployee("Kazi");
+	System.out.println(k);
+	k.setHourlyRate(13.00);
+	System.out.println(k);
+	k.setHoursWorked(8);
+	System.out.println(k);
+
+	List<Employee> employees = new ArrayList();
+	employees.add(new HourlyEmployee("Hourly"));
+	employees.add(new SalaryEmployee("Salary"));
+	employees.add(new CommissionedEmployee("Commissioned"));
+    }
+
+}

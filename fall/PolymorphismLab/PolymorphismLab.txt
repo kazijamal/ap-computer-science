@@ -1,0 +1,51 @@
+============================================================================
+ QUESTIONS: 1 - 4
+============================================================================
+
+1. The chance of flipping an H is 0.5 * 0.5 + 0.5 * 0.2 = 0.25 + 0.1 = 0.35 or 35%.
+2. The code will not compile because at compilation, the compiler searches the Object class to ensure that flip() is defined, which it is not. Therefore the code will not compile successfully.
+3. The code will compile because at compilation, the compiler searches the Flippable class to ensure that flip() is defined, which it is. Therefore the code will compile successfully.
+4. The code will run, with the version of flip() being based on the BiasedCoin Object type.
+
+============================================================================
+ QUESTIONS: 5 - 10 
+============================================================================
+
+5. Given :  A a = new A(10);
+      
+      (a). a.f();  compiles; returns 12 
+      (b). a.g();  compiles; returns 8
+
+6. Given :  A b = new B(10);
+
+      (a). b.f();  compiles; returns 3
+      (b). b.g();  compiles; returns 30
+
+7. Given :  C c = new C(10);
+              
+      (a). c.f();  compiles; returns 3
+      (b). c.g();  compiles; returns 6
+      (c). c.h();  compiles; returns 19
+
+8. Given :  A c = new C(10);
+       
+      (a). c.f();  compiles; returns 3
+      (b). c.g();  compiles; returns 6
+      (c). c.h();  does not compile
+
+
+9. Given :  C d = new C(10);
+
+     (a). ((A)d).f();  compiles; returns 3
+     (b). ((A)d).g();  compiles; returns 6
+     (c). ((A)d).h();  does not compile
+
+10. Interface1 t1 = new R();
+    R t2 = (R)t1;
+
+     (a). t1.f(1);  compiles; returns 2
+     (b). t2.f(1);  compiles; returns 2
+     (c). t1.g(1);  does not compile
+     (d). t2.g(1);  compiles; returns 10
+     (e). t1.toString();  compiles; returns "Howdy"
+     (f). t2.toString();  compiles; returns "Howdy"

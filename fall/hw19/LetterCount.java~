@@ -1,0 +1,65 @@
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class LetterCount{
+
+    public static void main(String [] args){
+	new LetterCount().run();
+    }
+
+    public void run(){
+	createArray();
+	BufferedReader rd = openFileReader(new Scanner(System.in), "enter a file: ");
+	countLetters(rd);
+    }
+
+    private void createArray(){
+	int [] countArray = new int[26];
+	for (i = 0; i < 26; i++){
+	    countArray[i] = 0;
+	}
+    }
+
+    private void printArray(int [] data){
+	char ch = 'a';
+	System.out.printf("%-8c %s", ch, "Frequency");
+	System.out.println()
+	for (int i = 0; i < data.length; i++){
+	    System.out.printf(%-8c %d, ch, countArray[i]);
+	    System.out.println();
+	}
+    }
+
+    private void countLetters(BufferedReader rd){
+	String alpha = "abcdefghijklmnopqrstuvwxyz";
+	try{
+	    while (true){
+		String line = rd.readLine();
+		if (line == null) break;
+		for (int i = 0; i < line.length(); i++){
+		    String letter = line.substring(i,i+1).toLowerCase();
+		    int index = alpha.indexOf(letter);
+		    countArray[index] = ++countArray[index];
+		}
+	    }
+	    rd.close();
+	}catch(IOException ex){
+	    throw new RuntimeException();
+	}
+    }		    
+
+    private BufferedReader openFileReader(Scanner sys, String prompt){
+	BufferedReader rd = null;
+	while (rd == null){
+	    System.out.print(prompt);
+	    file = sys.nextLine();
+	    try{
+		rd = new BufferedReader(new FileReader(file));
+	    }catch(IOException ex){
+		System.out.println("Can't open file.");
+	    }
+	}
+	return rd;
+    }

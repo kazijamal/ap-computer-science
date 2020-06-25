@@ -1,0 +1,40 @@
+public class TokenScannerClient{
+
+    public static void main(String [] args){
+	new TokenScannerClient().run();
+    }
+
+    public void run(){
+	TokenScanner sc = new TokenScanner("Ok 007, this is a sentence.");
+	int t = 0;
+	while (sc.hasMoreTokens()){
+	    System.out.println("token " + t + " : " + sc.nextToken());
+	    t++;
+	}
+	System.out.println();
+	sc.setInput("Ok 007, this is a sentence.");
+	System.out.println("avgWordLength: " + avgWordLength(sc));
+	System.out.println();
+	sc.setInput("Ok 007, this is a sentence.");
+	sc.ignoreWhitespace();
+	t = 0;
+	while (sc.hasMoreTokens()){
+	    System.out.println("token " + t + " : " + sc.nextToken());
+	    t++;
+	}
+    }
+
+    public double avgWordLength(TokenScanner sc){
+	int n = 0;
+	int sum = 0;
+	while (sc.hasMoreTokens()){
+	    String next = sc.nextToken();
+	    if (Character.isLetter(next.charAt(0))){
+		sum += next.length();
+		n++;
+	    }
+	}
+	return sum / (double) n;
+    }
+
+}

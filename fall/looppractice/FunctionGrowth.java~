@@ -1,0 +1,5 @@
+public class FunctionGrowth{
+
+    public void run(){
+	for (double N = 16.0; N <= 2048.0; N *= 2){
+	    System.out.println(N +

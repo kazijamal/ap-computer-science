@@ -1,0 +1,16 @@
+public class Factors{
+
+    public static void main(String [] args){
+	long n = Long.parseLong(args[0]);
+	int divisor = 2;
+	while (divisor <= n){
+	    if (n % divisor == 0){
+		System.out.print(divisor + " ");
+		n /= divisor;
+	    }
+	    else divisor++;
+	}
+	System.out.println();
+    }
+
+}

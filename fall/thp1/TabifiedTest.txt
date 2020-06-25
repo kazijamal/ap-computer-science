@@ -1,0 +1,58 @@
+public class Lab12{
+
+        public static int scrabble(String w){
+                int pts = 0;
+                for (int i = 0; i < w.length(); i++){
+                    //String ch  = "" + w.charAt(i);
+                    String ch = w.substring(i,i+1);
+                    if ("AEILNORSTU".contains(ch)) pts++;
+                    else if ("DG".contains(ch)) pts += 2;
+                    else if ("BCMP".contains(ch)) pts += 3;
+                    else if ("FHVWY".contains(ch)) pts += 4;
+                    else if ("K".equals(ch)) pts += 5;
+                    else if ("JX".contains(ch)) pts += 8;
+                    else if ("QZ".contains(ch)) pts += 10;
+                // comment for testing
+                /* multi
+                        line
+                                comments 
+                                        even    more
+                                        linesssss */    
+                }
+                return pts;
+        }
+
+        // comment
+
+        public static String capitalize(String w){
+                if (w.length() == 0) return w;
+                return Character.toUpperCase(w.charAt(0)) + w.substring(1).toLowerCase();
+        }
+
+        /* more comment
+        more even more comment wow
+        ending comment */
+
+        public static String trim(String s){
+                int i = 0, j = s.length() - 1;
+                while (i <= j && Character.isWhitespace(s.charAt(i))) i++;
+                while (j > i  && Character.isWhitespace(s.charAt(j))) j--;
+                return s.substring(i,j + 1);
+        }
+
+        public void run(){
+                Scanner sys = new Scanner(System.in);
+                System.out.print("enter a word: ");
+                String w = sys.nextLine();
+                String wTrim = trim(w);
+                System.out.println("\"" + w + "\"");
+                System.out.println("\"" + wTrim + "\"");
+                System.out.println(w + " capitalized " + capitalize(w));
+                System.out.println(w + " scramble score : " + scrabble(w));
+        }
+
+        public static void main(String [] args){
+                new Lab12().run();
+        }
+
+}

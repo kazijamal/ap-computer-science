@@ -1,0 +1,16 @@
+public class BiasedCoin extends Coin{
+
+    private double probH;
+
+    public BiasedCoin(double probH){
+	this.probH = probH;
+    }
+
+    @Override
+    public String flip(){
+	double p = Math.random();
+	if (p < probH) return "H";
+	return "T";
+    }
+    
+}

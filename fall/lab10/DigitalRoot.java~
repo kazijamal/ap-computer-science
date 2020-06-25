@@ -1,0 +1,18 @@
+public class DigitalRoot{
+
+    public int digitalRoot(int n){
+	if (digitSum(n) < 10)
+	    return digitSum(n);
+	digitalRoot(digitSum(digitSum(n)));
+    }
+
+    public void run(int n){
+	System.out.println(digitalRoot(n));
+    }
+
+    public static void main(String [] args){
+	int n = Integer.parseInt(args[0]);
+	new DigitalRoot().run(n);
+    }
+
+}

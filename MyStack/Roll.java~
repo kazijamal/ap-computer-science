@@ -1,0 +1,27 @@
+import java.util.Stack;
+
+public class Roll {
+
+    public static void roll(Stack<String> stack, int n, int k) {
+	String[] arr = new String[n];
+	for (int i = 0; i < n; i++) {
+	    arr[i] = stack.pop();
+	}
+	for (int i = 0; i < k; i++) {
+	    
+	}
+	for (String str: arr) stack.push(str);
+    }
+
+    public static void main(String[] args) {
+	Stack<String> stack = new Stack<String>();
+	stack.push("D");
+	stack.push("C");
+	stack.push("B");
+	stack.push("A");
+	System.out.println(stack);
+	roll(stack, 4, 1);
+	System.out.println(stack);
+    }
+   
+}

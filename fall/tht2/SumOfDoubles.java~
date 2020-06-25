@@ -1,0 +1,18 @@
+public class SumOfDoubles{
+
+    public static void main(String [] args){
+	new SumOfDoubles().run();
+    }
+
+    public void run(){
+    }
+
+    private double sumOfDoubles(double ... args){
+	double sum = 0.0;
+	for (double d : args){
+	    sum += d;
+	}
+	return d;
+    }
+
+}

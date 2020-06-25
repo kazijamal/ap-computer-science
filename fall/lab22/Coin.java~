@@ -1,0 +1,10 @@
+public class Coin implements Flippable{
+
+    @Override
+    public String flip(){
+        double p = Math.random();
+	if (p < 0.5) return "H";
+	return "T";
+    }
+
+}

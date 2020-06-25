@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class CaesarCipher{
+
+    private String encodeCaesarCipher(String str, int shift){
+	String encoded = "";
+        for (int i = 0; i < str.length(); i ++){
+	    int ascii = (int) str.charAt(i)
+	    if (ascii >= 65 && ascii <= 90){
+		if (ascii + shift > 90){
+		    (ascii + shift) % 20) 
+		}
+		else if (ascii + shift < 65){
+		}
+		else ascii += shift;
+	    }
+	    if (ascii >= 97 && ascii <= 122){
+		if (ascii + shift > 122){
+		}
+		else if (ascii + shift < 97){
+		}
+		else ascii += shift;
+	    }
+	    encoded += (char) ascii;
+	}
+	return encoded;
+    }
+			
+
+    public void run(){
+	Scanner sys = new Scanner(System.in);
+	System.out.print("enter a string: ");
+	String str = sys.nextLine();
+	System.out.print("enter the shift: ");
+	int shift = sys.nextInt();
+	System.out.println(encodeCaesarCipher(str,shift));
+    }
+
+    public static void main(String [] args){
+	new CaesarCipher().run();
+    }
+
+}

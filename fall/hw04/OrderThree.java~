@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class OrderThree{
+
+    public void run(){
+	Scanner sys = new Scanner(System.in);
+	System.out.print("enter an integer: ");
+	int i1 = sys.nextInt();
+	System.out.print("enter an integer: ");
+	int i2 = sys.nextInt();
+	System.out.print("enter an integer: ");
+	int i3 = sys.nextInt();
+        int min = Math.min(i1, i2);
+	min = Math.min(min, i3);
+	int max = Math.max(i1, i2);
+	max = Math.max(max, i3);
+	System.out.println(min + ", " + max);
+
+    }
+
+    public static void main(String [] args){
+	new OrderThree().run();
+
+    }
+
+}

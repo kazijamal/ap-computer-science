@@ -1,0 +1,27 @@
+public class DominoTesting{
+
+    public static void main(String [] args){
+	new DominoTesting().run();
+    }
+
+    public void run(){
+	System.out.println("Display of a full set of dominos\n");
+	int r[][] = new int[7][0];
+	for (int i = 0, j = 1; i < 7; i++, j++){
+	    r[i] = new int[j];
+	    for (int c = 0; c < j; c++){
+		r[i][c] = c;
+	    }
+	}
+	int count = 0;
+	for (int i = 0; i < r.length; i++){ 
+	    for (int j = 0; j < r[i].length; j++){
+		System.out.print(new Domino(i,j) + " ");
+		count++;
+	    }
+	    System.out.println();
+	}
+	System.out.println("\nTotal number of dominos: " + count);
+    }
+
+}

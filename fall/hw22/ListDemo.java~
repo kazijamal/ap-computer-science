@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+
+public class ListDemo{
+
+    public static void main(String [] args){
+	new ListDemo().run();
+
+    }
+
+    public void run(){
+	ArrayList<String> list = new ArrayList<String>();
+	System.out.println ("empty?: " + list.isEmpty());
+	System.out.println("empty list: " + list + " size: " + list.size());
+	list.add("a");	     	   
+	System.out.println("add a: " + list + " size: " + list.size()) ;  
+	list.add("b");
+	System.out.println("add b: " + list + " size: " + list.size()) ;  
+	list.add("d");
+	System.out.println("add d: " + list + " size: " + list.size()) ;  
+	list.add(2,"c");
+	System.out.println("add c at 2 : " + list + " size: " + list.size()) ;     
+    }
+}

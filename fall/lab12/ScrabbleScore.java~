@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class ScrabbleScore{
+
+    private int points(String word){
+	int points = 0;
+	for (int i = 0; i < word.length(); i++){
+	    String c = Character.toString(word.charAt(i));
+	    if ("AEILNORSTU".contains(c))
+		points += 1;
+	    else if ("DG".contains(c))
+		points += 2;
+	    else if ("BCMP".contains(c))
+		points += 3;
+	    else if ("FHVWY".contains(c))
+		points += 4;
+	    else if ("K".contains(c))
+		points += 5;
+	    else if ("JX".contains(c))
+		points += 8;
+	    else if ("QZ".contains(c))
+		points += 10;
+	}
+	return points;
+    }
+
+    public void run(){
+	Scanner sys = new Scanner(System.in);
+	System.out.print("enter a word to find its score: ");
+	String word = sys.nextLine();
+	System.out.println(points(word) + " points");
+    }
+
+    public static void main(String [] args){
+	new ScrabbleScore().run();
+    }
+
+}

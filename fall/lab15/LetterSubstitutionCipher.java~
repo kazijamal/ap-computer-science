@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class LetterSubstitutionCipher{
+
+    private String encodeLetterSubstitutionCipher(String key, String message){
+	encoded = "";
+	alpha = "abcdefghijklmnopqrstuvwxyz";
+	if (key.isUpperCase()){
+	    message = message.toUpperCase();
+	    alpha = alpha.toUpperCase();
+	}
+	else
+	    message = message.toLowerCase();
+	for (int i = 0; i < message.length; i++){
+	    alpha.indexOf(message.charAt(i))
+	
+	
+	
+    public void run(){
+	Scanner sys = new Scanner(System.in);
+	System.out.print("Enter a 26-letter key : ");
+	String key = sys.nextLine();
+	System.out.print("Enter a message: ");
+	String message = sys.nextLine();
+	System.out.println("Encoded message: " + encodeLetterSubstitutionCipher(key, message));
+    }
+
+    public static void main(String [] args){
+	new LetterSubstitutionCipher().run();
+    }

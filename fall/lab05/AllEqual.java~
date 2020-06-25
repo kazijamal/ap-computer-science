@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class AllEqual{
+
+    public void run(){
+	Scanner sys = new Scanner(System.in);
+	System.out.println("enter an integer: ");
+	int1 = sys.nextInt;
+	System.out.println("enter an integer: ");
+	int2 = sys.nextInt;
+	System.out.println("enter an integer: ");
+	int3 = sys.nextInt;
+	if (int1 == int2 == int3){
+	    System.out.println("equal");
+	}
+	else{
+	    System.out.println("not equal");
+	}
+    }
+
+    public static void main(String [] args){
+	AllEqual().run();
+    }
+
+}
+    
+		

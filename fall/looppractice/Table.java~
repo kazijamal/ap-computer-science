@@ -1,0 +1,18 @@
+public class Table{
+
+    public void run(){
+	for (int i = 1,000; i <= 2, i++){
+	    if (i % 5 != 0){
+		System.out.print("\t" + i);
+	    }
+	    else{
+		System.out.println(i);
+	    }
+	}
+    }
+
+    public static void main(String [] args){
+	new Table().run();
+    }
+
+}

@@ -1,0 +1,50 @@
+5. a. Draw the BST from this sequence: 10, 25, 5, 4, 13, 11, 7, 12
+
+                                    10
+
+                            5               25
+
+                          4   7          13
+
+                                      11
+
+                                         12    
+
+   b. Write the sequences produced by the preorder, postorder and inorder
+      traversals.
+
+      preorder: 10,5,4,7,25,13,11,12
+      inorder: 4,5,7,10,11,12,13,25
+      postorder: 4,7,5,12,11,13,25,10
+
+   c. What does the tree look like after removing the 13.
+
+                                    10
+
+                            5               25
+
+                          4   7          12
+
+                                      11
+
+   d. What does the tree look like after removing the 5.
+
+                                    10
+
+                            7               25
+
+                          4              13
+
+                                      11
+
+                                         12    
+
+   e. What does the tree look like after removing the 10.
+
+                                    11
+
+                            5               25
+
+                          4   7          13
+
+                                      12

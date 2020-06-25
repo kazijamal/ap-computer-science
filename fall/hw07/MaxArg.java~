@@ -1,0 +1,10 @@
+public class MaxArg{
+
+    public static void main(String [] args){
+	max = Integer.MIN_VALUE;
+	for (int x, args){
+	    if (x > max){
+		max = x;
+	    }
+	}
+	System.out.println("Max arg: " + max)

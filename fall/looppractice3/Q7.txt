@@ -1,0 +1,62 @@
+7. Review the following code:
+
+   public class Binary{
+
+   	  public static void main(String[] args){
+	  	 int n = Integer.parseInt(args[0]);
+		 int power = 1;
+		 while (power <= n / 2) power *= 2;
+
+		 while (power > 0){
+		       int weight = 0;
+		       if (n >= power){
+		       	     weight = 1;
+			     n -= power;
+		       }
+		       System.out.print(weight);
+		       power /= 2;
+	         }
+
+		 System.out.println();
+           }
+    }
+
+
+ (A). Draw a trace diagram displaying the state of the variables
+      n and power for the first loop. Assume n is initialized with 19.
+
+       n       power
+     ----      -----
+       19        1
+       19	 2
+       19	 4
+       19        8
+       19       16
+
+
+  (B).  Describe what the first loop is computing.
+
+	The first loop is computing the greatest power of two less than n.
+
+
+  (C).  Trace the second loop.
+
+   	 n          power	weight		 output so far
+        ---        -------     -------           -------------
+          3            8           1                    1
+          3            4           0                   10
+          3            2           0                  100
+          1            1           1                 1001
+          0            0           1                10011
+          
+
+  (D).  Describe what the second loop is computing.
+
+	The second loop is computing the binary of n.
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+public class AvgRandom{
+
+    public static void main(String [] args){
+	int n = Integer.parseInt(args[0]);
+	int numterm = 1;
+       
+	for (int i = 1; i <= n; i++){
+	    System.out.println("term " + numterm + "\t" + Math.random());
+	    numterm++
+	}

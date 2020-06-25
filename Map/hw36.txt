@@ -1,0 +1,50 @@
+1. Assume a hash map with integer keys are integers and the value represent
+   the frequency of a key.
+
+   Given the arrival of integer keys in the order:
+
+   	 67,55,19,4,58,38,4,55,4,86
+
+   and m = 9 (the hash table size) with the hash function hash(key) = key % m.
+
+   Trace the insertion steps of linearly processing collisions. 
+   Each bucket is a linked list.
+
+   67 % 9 = 4
+   55 % 9 = 1
+   19 % 9 = 1
+   4 % 9 = 4
+   58 % 9 = 4
+   38 % 9 = 2
+   4 % 9 = 4
+   55 % 9 = 1
+   4 % 9 = 4
+   86 % 9 = 5
+
+   bucket 4 = 67
+   bucket 1 = 55
+   bucket 1 = 55 --> 19
+   bucket 4 = 67 --> 4
+   bucket 4 = 67 --> 4 --> 58
+   bucket 2 = 38
+   bucket 4 = 67 --> 4,2 --> 58
+   bucket 1 = 55,2 --> 19
+   bucket 4 = 67 --> 4,3 --> 58
+   bucket 5 = 86
+
+   bucket 1 = 55,2 --> 19
+   bucket 2 = 38
+   bucket 4 = 67 --> 4,3 --> 58
+   bucket 5 = 86
+
+
+2. Redo question #1 with a TreeMap. Draw the resulting BST (each node
+   is a key,value pair with references to its subtrees).
+
+                                    67
+                            /               \
+                    55,2                         86
+                /          \
+            19              58
+          /     \
+        4,3     38

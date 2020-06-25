@@ -1,0 +1,64 @@
+// Extends Object is implied.
+public class Point { 
+
+    // public class Point extends Object {}  is understood.
+    // General syntax  for class B to be a subclass of class A
+    //              public class B extends A{}
+  
+    // instance variables (fields) : Neither will be directly accessible by clients because
+    //                               of the private modifier
+    private int x;
+    private int y;
+
+
+    // Constructors: instructs the compiler to  allocate memory for each field
+    //               Generally used with the new operator. (new Point() )
+    //               Constructors never have a return type
+    // Default constructor: a constructor that takes no arguments.
+    public Point(){
+	// super();     // accesses the superclass(Object) default constructor
+	this(0,0);      // refers to the Point(int,int) constructor
+    }
+
+    // An overloaded constructor: provides another version of a Construcor
+    public Point(int x, int y){
+	this.x = x;       // the scope of the paramters x and y overlap  with the fields x and y. ( Known as shadowing).
+	this.y = y;       // Use the this reference to access the fields x and y.
+	                  
+    }
+    // An overloaded constructor that returns a copy of the Point referred to by other.
+    public Point(Point other){
+	x = other.getX();
+	y = other.getY();
+    }
+    
+
+    //*********************** GETTER methods - provide read only access to the ADT's data
+    public int getX(){
+	return x;         // return this.x;    
+                          // Is correct as well, but unnessary since there is no shadowing.
+    }
+
+    public int getY(){
+	return y;
+    }
+
+    // Post: Returns a copy of the Point object by creating a new instance of a Point
+    public Point getLocation(){
+	return new Point(this.getX(),this.getY());
+    }
+
+
+    //********************* Override the method inherited from the Object class **********************
+    //To override a method the methods must match exactly the method signature from the superclass.
+    // Often called automaically to convert a Point object to a String
+    //    Point p = new Point(3,5);
+    //    p  + " is a point"
+    //    (3,5) + " is a point"    
+    //    "(3,5) is a point" 
+    public String toString(){
+	return "(" + x + ", " + y + ")";
+    }
+
+
+}
